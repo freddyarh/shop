@@ -1,8 +1,16 @@
-import { RouterProvider } from "react-router"
-import { appRouter } from "./app.router"
+import { RouterProvider } from "react-router";
+import { appRouter } from "./app.router";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 export const MakeupShopApp = () => {
   return (
-    <RouterProvider router={appRouter} />
+    <QueryClientProvider client={queryClient}>
+      {/* The rest of your application */}
+      <RouterProvider router={appRouter} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
