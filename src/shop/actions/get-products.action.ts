@@ -1,8 +1,21 @@
 import { makeupApi } from "@/api/makeupApi"
 import type { ProductsResponse } from "@/interfaces/products.response";
 
-export const getProductsAction = async(): Promise<ProductsResponse> => {
-    const { data } = await makeupApi.get<ProductsResponse>('/products');
+interface Options {
+    limit?: number | string;
+    offset?: number | string;
+}
+
+export const getProductsAction = async(options: Options): Promise<ProductsResponse> => {
+    
+    const { limit, offset } = options;
+    
+    const { data } = await makeupApi.get<ProductsResponse>('/products', {
+        params: {
+            limit,
+            offset,
+        }
+    });
     console.log(data)
     const productsWithImageUrls = data.products.map(product => ({
         ...product,
