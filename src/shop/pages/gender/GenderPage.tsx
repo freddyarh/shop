@@ -1,5 +1,4 @@
 import { CustomPagination } from "@/components/custom/CustomPagination"
-import { products } from "@/mocks/products.mock"
 import { CustomJumbotron } from "@/shop/components/CustomJumbotron"
 import { ProductGrid } from "@/shop/components/ProductGrid"
 import { useProducts } from "@/shop/hooks/useProducts"
@@ -16,7 +15,7 @@ export const GenderPage = () => {
     <>
       <CustomJumbotron title={`Todos los productos para ${genderLabel}`} />
       <ProductGrid products={data?.products || []} />
-      <CustomPagination totalPages={7} />
+      <CustomPagination totalPages={data?.pages || 1} />
     </>
   )
 }

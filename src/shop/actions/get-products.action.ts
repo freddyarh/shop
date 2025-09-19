@@ -4,19 +4,23 @@ import type { ProductsResponse } from "@/interfaces/products.response";
 interface Options {
     limit?: number | string;
     offset?: number | string;
+    sizes?: string;
+    gender?: string;
 }
 
 export const getProductsAction = async(options: Options): Promise<ProductsResponse> => {
     
-    const { limit, offset } = options;
+    const { limit, offset, sizes, gender } = options;
     
     const { data } = await makeupApi.get<ProductsResponse>('/products', {
         params: {
             limit,
             offset,
+            sizes,
+            gender
         }
     });
-    console.log(data)
+    
     const productsWithImageUrls = data.products.map(product => ({
         ...product,
         images: product.images.map(
