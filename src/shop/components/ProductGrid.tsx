@@ -16,7 +16,7 @@ export const ProductGrid = ({ products }: Props) => {
 
     const [showFilters, setShowFilters] = useState(false);
 
-    const viewMode = searchParams.get('viewmode') || 'grid';
+    const viewMode = searchParams.get('viewMode') || 'list';
 
     const handleViewModeChange = ( mode: 'grid' | 'list') => {
         searchParams.set('viewMode', mode);
