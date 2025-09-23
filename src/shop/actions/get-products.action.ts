@@ -6,18 +6,24 @@ interface Options {
     offset?: number | string;
     sizes?: string;
     gender?: string;
+    minPrice?: number;
+    maxPrice?: number;
+    q?: string;
 }
 
 export const getProductsAction = async(options: Options): Promise<ProductsResponse> => {
     
-    const { limit, offset, sizes, gender } = options;
+    const { limit, offset, sizes, gender, minPrice, maxPrice, q, } = options;
     
     const { data } = await makeupApi.get<ProductsResponse>('/products', {
         params: {
             limit,
             offset,
             sizes,
-            gender
+            gender,
+            minPrice,
+            maxPrice,
+            q,
         }
     });
     
