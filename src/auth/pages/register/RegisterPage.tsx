@@ -1,17 +1,46 @@
 
+import { useState, type FormEvent } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { CustomLogo } from "@/components/custom/CustomLogo"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
+import { useAuthStore } from "@/auth/store/auth.store"
+import { toast } from "sonner"
 
 export const RegisterPage = () => {
+
+  const navigate = useNavigate();
+  const { register } = useAuthStore();
+
+  const [isPosting, setIsPosting] = useState(false);
+
+  const handleSubmit = async(event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsPosting(true);
+
+    const formData = new FormData(event.target as HTMLFormElement);
+    const fullName = formData.get('fullName') as string;
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    
+    const isValid = await register(fullName, email, password);
+    
+    if( isValid ){
+      navigate('/');
+      return;
+    };
+
+    toast.error('Full Name, email and password are not correct')
+    setIsPosting(false);
+  };
+
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <form className="p-6 md:p-8" onSubmit={ handleSubmit }>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
                 <CustomLogo />
@@ -19,11 +48,11 @@ export const RegisterPage = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="name">Full name</Label>
-                <Input id="name" type="text" placeholder="fullname" required />
+                <Input id="name" type="text" name="fullName" placeholder="fullname" required />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="m@example.com" required />
+                <Input id="email" type="email" name="email" placeholder="m@example.com" required />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
@@ -32,7 +61,7 @@ export const RegisterPage = () => {
                     Forgot your password?
                   </a>
                 </div>
-                <Input id="password" type="password" placeholder="password" required />
+                <Input id="password" type="password" name="password" placeholder="password" required />
               </div>
               <Button type="submit" className="w-full">
                 Sing up

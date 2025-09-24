@@ -2,11 +2,12 @@ import { makeupApi } from "@/api/makeupApi"
 import type { AuthResponse } from "../interfaces/auth.response"
 
 
-export const loginAction = async(email: string, password: string): Promise<AuthResponse | undefined> => {
+export const registerAction = async(fullName: string, email: string, password: string): Promise<AuthResponse | undefined> => {
 
     try {
         
-        const { data } = await makeupApi.post<AuthResponse>('/auth/login', {
+        const { data } = await makeupApi.post<AuthResponse>('/auth/register', {
+            fullName,
             email,
             password
         });
