@@ -30,7 +30,6 @@ export const AdminProductsPage = () => {
       <Table className="bg-white p-10 shadow-xs border border-gray-200 mb-10">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
             <TableHead>Image</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Price</TableHead>
@@ -44,7 +43,6 @@ export const AdminProductsPage = () => {
           {
             data?.products.map((product) => (
               <TableRow key={ product.id } >
-                <TableCell className="font-medium">{ product.id }</TableCell>
                 <TableCell>
                   <img src={ product.images[0] } alt="Product" className="w-20 h-20 object-cover rounded-md" />
                 </TableCell>
@@ -52,7 +50,7 @@ export const AdminProductsPage = () => {
                 <TableCell>${ product.price }</TableCell>
                 <TableCell>{ product.gender }</TableCell>
                 <TableCell>{ product.stock }</TableCell>
-                <TableCell>{ product.sizes.join(',') }</TableCell>
+                <TableCell>{ product.sizes.join(', ') }</TableCell>
                 <TableCell className="text-right">
                   <Link to={`/admin/products/t-shirt-teslo`}>
                     Editar
