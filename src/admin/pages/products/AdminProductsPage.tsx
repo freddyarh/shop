@@ -4,7 +4,7 @@ import { CustomPagination } from "@/components/custom/CustomPagination"
 import { Button } from "@/components/ui/button"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { useProducts } from "@/shop/hooks/useProducts"
-import { PlusIcon } from "lucide-react"
+import { Pencil, PencilIcon, PlusIcon } from "lucide-react"
 import { Link } from "react-router"
 
 export const AdminProductsPage = () => {
@@ -46,14 +46,21 @@ export const AdminProductsPage = () => {
                 <TableCell>
                   <img src={ product.images[0] } alt="Product" className="w-20 h-20 object-cover rounded-md" />
                 </TableCell>
-                <TableCell>{ product.title }</TableCell>
+                <TableCell>
+                  <Link 
+                    to={`/admin/products/${product.id}`}
+                    className="hover:text-blue-500 underline"
+                  >
+                    { product.title }
+                  </Link>
+                </TableCell>
                 <TableCell>${ product.price }</TableCell>
                 <TableCell>{ product.gender }</TableCell>
                 <TableCell>{ product.stock }</TableCell>
                 <TableCell>{ product.sizes.join(', ') }</TableCell>
                 <TableCell className="text-right">
-                  <Link to={`/admin/products/t-shirt-teslo`}>
-                    Editar
+                  <Link to={`/admin/products/${product.id}`}>
+                    <PencilIcon className="w-4 h-4 text-blue-500" />
                   </Link>
                 </TableCell>
               </TableRow>
