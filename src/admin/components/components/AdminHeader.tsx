@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, type KeyboardEvent } from 'react';
 import { Search, Bell, MessageSquare, Settings } from 'lucide-react';
 import { useSearchParams } from 'react-router';
 
