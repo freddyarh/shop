@@ -1,8 +1,8 @@
-import ActivityFeed from "@/admin/components/components/ActivityFeed";
-import { AdminTitle } from "@/admin/components/components/AdminTitle";
-import Chart from "@/admin/components/components/Chart";
-import QuickActions from "@/admin/components/components/QuickActions";
-import StatCard from "@/admin/components/components/StatCard";
+import ActivityFeed from "@/admin/components/ActivityFeed";
+import { AdminTitle } from "@/admin/components/AdminTitle";
+import Chart from "@/admin/components/Chart";
+import QuickActions from "@/admin/components/QuickActions";
+import StatCard from "@/admin/components/StatCard";
 import { Users, DollarSign, ShoppingCart, TrendingUp, Eye, BarChart3 } from "lucide-react";
 
 const stats = [

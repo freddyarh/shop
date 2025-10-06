@@ -1,11 +1,11 @@
-import { AdminTitle } from "@/admin/components/components/AdminTitle"
-import { CustomFullScreenLoading } from "@/components/custom/CustomFullScreenLoading"
-import { CustomPagination } from "@/components/custom/CustomPagination"
-import { Button } from "@/components/ui/button"
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
-import { useProducts } from "@/shop/hooks/useProducts"
-import { Pencil, PencilIcon, PlusIcon } from "lucide-react"
-import { Link } from "react-router"
+import { PencilIcon, PlusIcon } from "lucide-react";
+import { Link } from "react-router";
+import { AdminTitle } from "@/admin/components/AdminTitle";
+import { CustomFullScreenLoading } from "@/components/custom/CustomFullScreenLoading";
+import { CustomPagination } from "@/components/custom/CustomPagination";
+import { Button } from "@/components/ui/button";
+import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
+import { useProducts } from "@/shop/hooks/useProducts";
 
 export const AdminProductsPage = () => {
 
