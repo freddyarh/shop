@@ -1,33 +1,103 @@
 # Makeup Shop
 
-Ecommerce interface project
+A modern e-commerce frontend for browsing and managing makeup products. Built with React and TypeScript, it includes a public storefront, user authentication, and an admin dashboard.
 
-## 🚀 Steps to Get Started
+## Features
 
-Follow these steps to set up the project locally and start the development server.
+- **Storefront** — Browse products, filter by gender, and view product details
+- **Authentication** — Login and registration with protected routes
+- **Admin panel** — Dashboard, product list, and create/edit product forms
+- **Responsive UI** — Tailwind CSS with shadcn/ui components
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/freddyarh/shop.git
-    ```
+## Tech Stack
 
-2.  **Install Dependencies:**
-    Navigate to the root of the project directory in your terminal and run the following command to install all necessary packages:
-    ```bash
-    npm install
-    ```
+| Category | Technologies |
+| --- | --- |
+| Framework | React 19, TypeScript, Vite |
+| Styling | Tailwind CSS 4, shadcn/ui |
+| State & data | Zustand, TanStack Query, Axios |
+| Routing | React Router 7 |
+| Forms | React Hook Form |
 
-3.  **Run the Project:**
-    Start the development server (often accessible at `http://localhost:3000` or a similar port):
-    ```bash
-    npm run dev
-    ```
+## Getting Started
 
-## Some Screens
+### Prerequisites
 
-### Login Screen
+- [Node.js](https://nodejs.org/) 18 or later
+- npm (comes with Node.js)
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](src/assets/img-readme/login-screen.png)
+### Installation
 
-### Home Screen
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](src/assets/img-readme/home-screen.png)
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/freddyarh/shop.git
+   cd shop
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables**
+
+   Copy the template file and set your API URL:
+
+   ```bash
+   cp .env.template .env
+   ```
+
+   Then edit `.env` and add your backend URL:
+
+   ```env
+   VITE_API_URL=http://localhost:3000/api
+   ```
+
+4. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Project Structure
+
+```
+src/
+├── admin/          # Admin dashboard and product management
+├── auth/           # Login, register, and auth store
+├── shop/           # Storefront pages and components
+├── components/     # Shared UI and custom components
+├── api/            # Axios client configuration
+└── app.router.tsx  # Application routes
+```
+
+## Screenshots
+
+### Login
+
+<p align="center">
+  <img src="src/assets/img-readme/login-screen.png" alt="Login page with email and password fields" width="700" />
+</p>
+
+### Home
+
+<p align="center">
+  <img src="src/assets/img-readme/home-screen.png" alt="Home page showing product grid and navigation" width="700" />
+</p>
+
+## License
+
+This project is for educational and portfolio purposes.
