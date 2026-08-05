@@ -86,16 +86,38 @@ src/
 
 ## Screenshots
 
-### Login
+### Storefront
+
+#### Login
 
 <p align="center">
   <img src="src/assets/img-readme/login-screen.png" alt="Login page with email and password fields" width="700" />
 </p>
 
-### Home
+#### Home
 
 <p align="center">
   <img src="src/assets/img-readme/home-screen.png" alt="Home page showing product grid and navigation" width="700" />
+</p>
+
+### Admin Panel
+
+#### Dashboard
+
+<p align="center">
+  <img src="src/assets/img-readme/admin-dashboard.png" alt="Admin dashboard with stats, charts, and activity feed" width="700" />
+</p>
+
+#### Products
+
+<p align="center">
+  <img src="src/assets/img-readme/admin-products.png" alt="Admin products table with image, price, and inventory columns" width="700" />
+</p>
+
+#### Edit Product
+
+<p align="center">
+  <img src="src/assets/img-readme/admin-product-form.png" alt="Admin product edit form with images, sizes, and tags" width="700" />
 </p>
 
 ## License
